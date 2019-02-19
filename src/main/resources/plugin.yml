@@ -1,0 +1,7 @@
+name: AzoSpawner
+author: Azorimor
+website: www.github.com/azorimor/mc-azospawner
+main: io.github.azorimor.azospawner.AzoSpawner
+version: 1.0.0
+description: Controlling Spawners
+api-version: 1.13
