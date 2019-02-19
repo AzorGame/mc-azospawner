@@ -5,3 +5,7 @@ main: io.github.azorimor.azospawner.AzoSpawner
 version: 1.0.0
 description: Controlling Spawners
 api-version: 1.13
+commands:
+  givespawner:
+    description: Gives the player an amount of specific spawners.
+    usage: /givespawner <entityType> [amount]

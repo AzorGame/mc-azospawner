@@ -1,14 +1,20 @@
 package io.github.azorimor.azospawner;
 
+import io.github.azorimor.azospawner.commands.GiveSpawnerCommand;
+import io.github.azorimor.azospawner.files.PluginFile;
+import io.github.azorimor.azospawner.utils.MessageHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class AzoSpawner extends JavaPlugin {
 
-    
+    private PluginFile pluginFile;
+    private MessageHandler messageHandler;
 
     @Override
     public void onEnable() {
         super.onEnable();
+
+        this.pluginFile = new PluginFile(this);
 
         registerListeners();
         registerCommands();
@@ -25,7 +31,7 @@ public class AzoSpawner extends JavaPlugin {
     }
 
     private void registerCommands(){
-
+        getCommand("givespawner").setExecutor(new GiveSpawnerCommand(messageHandler));
     }
 
 }
