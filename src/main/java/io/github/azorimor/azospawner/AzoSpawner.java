@@ -1,10 +1,13 @@
 package io.github.azorimor.azospawner;
 
+import io.github.azorimor.azospawner.commands.GivePickaxeCommand;
 import io.github.azorimor.azospawner.commands.GiveSpawnerCommand;
 import io.github.azorimor.azospawner.files.PluginFile;
 import io.github.azorimor.azospawner.listeners.BreakSpawnerListener;
 import io.github.azorimor.azospawner.listeners.PlaceSpawnerListener;
+import io.github.azorimor.azospawner.recipe.SpawnerPickaxeRecipe;
 import io.github.azorimor.azospawner.utils.MessageHandler;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class AzoSpawner extends JavaPlugin {
@@ -21,6 +24,7 @@ public class AzoSpawner extends JavaPlugin {
 
         registerListeners();
         registerCommands();
+        registerRecipes();
     }
 
 
@@ -36,6 +40,11 @@ public class AzoSpawner extends JavaPlugin {
 
     private void registerCommands(){
         getCommand("givespawner").setExecutor(new GiveSpawnerCommand(messageHandler, this));
+        getCommand("givepickaxe").setExecutor(new GivePickaxeCommand());
+    }
+
+    private void registerRecipes(){
+        Bukkit.addRecipe(new SpawnerPickaxeRecipe(this,pluginFile).getRecipe());
     }
 
 }

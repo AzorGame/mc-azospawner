@@ -1,11 +1,14 @@
 package io.github.azorimor.azospawner.files;
 
 import io.github.azorimor.azospawner.AzoSpawner;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PluginFile {
 
@@ -33,11 +36,32 @@ public class PluginFile {
         cfg.addDefault("command.message.giveSpawner","Du hast den spawner erhalten.");
         cfg.addDefault("command.message.noEntityType","Bitte gieb einen gültigen EntityType an.");
 
+
+
+        cfg.addDefault("crafting.pickaxe.itemName","SpawnerPick");
+        ArrayList<String> pickLore = new ArrayList<String>();
+        pickLore.add("&7--------------------");
+        pickLore.add("&6You can destroy Spawners");
+        pickLore.add("&6by using this pickaxe.");
+        pickLore.add("&7--------------------");
+        cfg.addDefault("crafting.pickaxe.itemLore", pickLore);
+
         saveFile();
     }
 
-    public String getString(String path){
-        return cfg.getString(path);
+    public String getTranslatedString(String path){
+        return ChatColor.translateAlternateColorCodes('&',cfg.getString(path));
+    }
+
+
+    public List<String> getTranslatedStringList(String path){
+        List<String> list = cfg.getStringList(path);
+        List<String> editedList = new ArrayList<String>();
+        for (String s :
+                list) {
+            editedList.add(ChatColor.translateAlternateColorCodes('&',s));
+        }
+        return editedList;
     }
 
 

@@ -27,14 +27,14 @@ public class MessageHandler  {
     }
 
     private void loadDefaults(){
-        this.prefix = translateColorCodes(pluginFile.getString("prefix"));
+        this.prefix = translateColorCodes(pluginFile.getTranslatedString("prefix"));
 
-        this.noPlayer = translateColorCodes(pluginFile.getString("command.message.noPlayer"));
-        this.noPermission = translateColorCodes(pluginFile.getString("command.message.noPermission"));
-        this.wrongCommandUsage = translateColorCodes(pluginFile.getString("command.message.wrongCommandUsage"));
-        this.noNumber = translateColorCodes(pluginFile.getString("command.message.noNumber"));
-        this.commandGiveSpawner = translateColorCodes(pluginFile.getString("command.message.giveSpawner"));
-        this.noEntityType = translateColorCodes(pluginFile.getString("command.message.noEntityType"));
+        this.noPlayer = translateColorCodes(pluginFile.getTranslatedString("command.message.noPlayer"));
+        this.noPermission = translateColorCodes(pluginFile.getTranslatedString("command.message.noPermission"));
+        this.wrongCommandUsage = translateColorCodes(pluginFile.getTranslatedString("command.message.wrongCommandUsage"));
+        this.noNumber = translateColorCodes(pluginFile.getTranslatedString("command.message.noNumber"));
+        this.commandGiveSpawner = translateColorCodes(pluginFile.getTranslatedString("command.message.giveSpawner"));
+        this.noEntityType = translateColorCodes(pluginFile.getTranslatedString("command.message.noEntityType"));
     }
 
     /**

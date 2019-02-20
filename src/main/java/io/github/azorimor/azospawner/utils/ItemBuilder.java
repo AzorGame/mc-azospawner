@@ -38,4 +38,8 @@ public class ItemBuilder {
     }
 
 
+    public ItemStack build(){
+        return itemStack;
+    }
+
 }

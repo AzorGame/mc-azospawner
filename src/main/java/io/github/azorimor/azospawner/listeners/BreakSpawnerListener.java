@@ -2,11 +2,11 @@ package io.github.azorimor.azospawner.listeners;
 
 import io.github.azorimor.azospawner.AzoSpawner;
 import io.github.azorimor.azospawner.utils.MessageHandler;
+import io.github.azorimor.azospawner.utils.PickaxeItemTagType;
 import io.github.azorimor.azospawner.utils.SpawnerItemTagType;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.CreatureSpawner;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -33,8 +33,8 @@ public class BreakSpawnerListener implements Listener {
 
             ItemStack breakTool = event.getPlayer().getInventory().getItemInMainHand();
             ItemMeta breakMeta = breakTool.getItemMeta();
-            //TODO bedingung ändern
-            if(breakMeta.hasEnchant(Enchantment.SILK_TOUCH)){
+
+            if(breakMeta.getCustomTagContainer().hasCustomTag(new NamespacedKey(instance,"breakspawner"),new PickaxeItemTagType())){
 
                 ItemStack spawner = new ItemStack(Material.SPAWNER);
                 ItemMeta spawnerMeta = spawner.getItemMeta();
@@ -46,6 +46,7 @@ public class BreakSpawnerListener implements Listener {
                 spawner.setItemMeta(spawnerMeta);
 
                 event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(),spawner);
+                event.setExpToDrop(0);
             }
         }
     }
