@@ -1,6 +1,7 @@
 package io.github.azorimor.azospawner.utils;
 
 import io.github.azorimor.azospawner.files.PluginFile;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
@@ -19,6 +20,9 @@ public class MessageHandler  {
     private String noNumber;
     private String commandGiveSpawner;
     private String noEntityType;
+    private String playerOffline;
+    private String commandGivePickaxe;
+    private String commandGivePickaxeOther;
 
     public MessageHandler(PluginFile pluginFile) {
         this.pluginFile = pluginFile;
@@ -29,12 +33,15 @@ public class MessageHandler  {
     private void loadDefaults(){
         this.prefix = translateColorCodes(pluginFile.getTranslatedString("prefix"));
 
-        this.noPlayer = translateColorCodes(pluginFile.getTranslatedString("command.message.noPlayer"));
-        this.noPermission = translateColorCodes(pluginFile.getTranslatedString("command.message.noPermission"));
-        this.wrongCommandUsage = translateColorCodes(pluginFile.getTranslatedString("command.message.wrongCommandUsage"));
-        this.noNumber = translateColorCodes(pluginFile.getTranslatedString("command.message.noNumber"));
-        this.commandGiveSpawner = translateColorCodes(pluginFile.getTranslatedString("command.message.giveSpawner"));
-        this.noEntityType = translateColorCodes(pluginFile.getTranslatedString("command.message.noEntityType"));
+        this.noPlayer = pluginFile.getTranslatedString("command.message.noPlayer");
+        this.noPermission = pluginFile.getTranslatedString("command.message.noPermission");
+        this.wrongCommandUsage = pluginFile.getTranslatedString("command.message.wrongCommandUsage");
+        this.noNumber = pluginFile.getTranslatedString("command.message.noNumber");
+        this.commandGiveSpawner = pluginFile.getTranslatedString("command.message.giveSpawner");
+        this.noEntityType = pluginFile.getTranslatedString("command.message.noEntityType");
+        this.playerOffline = pluginFile.getTranslatedString("command.message.playerOffline");
+        this.commandGivePickaxe = pluginFile.getTranslatedString("command.message.givePickaxe");
+        this.commandGivePickaxeOther = pluginFile.getTranslatedString("command.message.givePickaxeOther");
     }
 
     /**
@@ -44,7 +51,7 @@ public class MessageHandler  {
      * @return translated Message
      */
     public String translateColorCodes(String string){
-        return string.replace('&','§');
+        return ChatColor.translateAlternateColorCodes('&',string);
     }
 
     /**
@@ -99,8 +106,20 @@ public class MessageHandler  {
     }
 
     public void sendNoEntityType(CommandSender commandSender, String noEntityType){
-        commandSender.sendMessage(prefix+ noEntityType.replace("%wrongType%",noEntityType));
+        commandSender.sendMessage(prefix+ this.noEntityType.replace("%wrongType%",noEntityType));
         //TODO Ausgabe aller Möglichkeiten.
+    }
+
+    public void sendPlayerOffline(CommandSender sender, String targetPlayerName){
+        sender.sendMessage(prefix+playerOffline.replace("%player%",targetPlayerName));
+    }
+
+    public void sendCommandGivePickaxeSuccess(CommandSender sender){
+        sender.sendMessage(prefix+commandGivePickaxe);
+    }
+
+    public void sendCommandGivePickaxeOtherSuccess(CommandSender sender, Player target){
+        sender.sendMessage(prefix+commandGivePickaxeOther.replace("%target%",target.getDisplayName()));
     }
 
     public void reloadValues(){

@@ -35,6 +35,9 @@ public class PluginFile {
         cfg.addDefault("command.message.noNumber","Gib eine Zahl ein");
         cfg.addDefault("command.message.giveSpawner","Du hast den spawner erhalten.");
         cfg.addDefault("command.message.noEntityType","Bitte gieb einen gültigen EntityType an.");
+        cfg.addDefault("command.message.playerOffline","Der Spieler ist offline.");
+        cfg.addDefault("command.message.givePickaxe","Du hast die Spitzhacke erhalten.");
+        cfg.addDefault("command.message.givePickaxeOther","Du hast die Spitzhacke vergeben.");
 
 
 

@@ -15,6 +15,8 @@ public class AzoSpawner extends JavaPlugin {
     private PluginFile pluginFile;
     private MessageHandler messageHandler;
 
+    private SpawnerPickaxeRecipe recipe;
+
     @Override
     public void onEnable() {
         super.onEnable();
@@ -40,11 +42,16 @@ public class AzoSpawner extends JavaPlugin {
 
     private void registerCommands(){
         getCommand("givespawner").setExecutor(new GiveSpawnerCommand(messageHandler, this));
-        getCommand("givepickaxe").setExecutor(new GivePickaxeCommand());
+        getCommand("givepickaxe").setExecutor(new GivePickaxeCommand(messageHandler,this));
     }
 
     private void registerRecipes(){
-        Bukkit.addRecipe(new SpawnerPickaxeRecipe(this,pluginFile).getRecipe());
+        this.recipe = new SpawnerPickaxeRecipe(this,pluginFile);
+        Bukkit.addRecipe(recipe.getRecipe());
     }
 
+
+    public SpawnerPickaxeRecipe getRecipe() {
+        return recipe;
+    }
 }
