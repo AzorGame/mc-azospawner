@@ -1,13 +1,16 @@
 package io.github.azorimor.azospawner.files;
 
 import io.github.azorimor.azospawner.AzoSpawner;
+import io.github.azorimor.azospawner.utils.RecipeValues;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class PluginFile {
@@ -48,8 +51,27 @@ public class PluginFile {
         pickLore.add("&6by using this pickaxe.");
         pickLore.add("&7--------------------");
         cfg.addDefault("crafting.pickaxe.itemLore", pickLore);
+        cfg.addDefault("crafting.pickaxe.recipe.firstrow","NNN");
+        cfg.addDefault("crafting.pickaxe.recipe.secondrow","_O_");
+        cfg.addDefault("crafting.pickaxe.recipe.thirdrow","_O_");
+        cfg.addDefault("crafting.pickaxe.recipe.values.N","NETHER_STAR");
+        cfg.addDefault("crafting.pickaxe.recipe.values.O","OBSIDIAN");
 
         saveFile();
+    }
+
+
+    public RecipeValues getRecipeInformation(String path){ //f.e path: crafting.pickaxe.recipe<relevant information>
+        RecipeValues recipe = new RecipeValues(cfg.getString(path+".firstrow"),cfg.getString(path+".secondrow"),cfg.getString(path+".thirdrow"));
+
+        HashMap<String, Object> values = (HashMap<String, Object>) cfg.getConfigurationSection(path+".values").getValues(false);
+
+        for (String key: values.keySet()){
+            recipe.addKeyPair(key.charAt(0), (String) values.get(key));
+        }
+
+        return recipe;
+
     }
 
     public String getTranslatedString(String path){
