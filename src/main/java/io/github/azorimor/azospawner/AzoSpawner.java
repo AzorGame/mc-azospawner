@@ -2,6 +2,7 @@ package io.github.azorimor.azospawner;
 
 import io.github.azorimor.azospawner.commands.GiveSpawnerCommand;
 import io.github.azorimor.azospawner.files.PluginFile;
+import io.github.azorimor.azospawner.listeners.BreakSpawnerListener;
 import io.github.azorimor.azospawner.listeners.PlaceSpawnerListener;
 import io.github.azorimor.azospawner.utils.MessageHandler;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -29,7 +30,8 @@ public class AzoSpawner extends JavaPlugin {
     }
 
     private void registerListeners(){
-        getServer().getPluginManager().registerEvents(new PlaceSpawnerListener(this,messageHandler),this);
+        getServer().getPluginManager().registerEvents(new PlaceSpawnerListener(this),this);
+        getServer().getPluginManager().registerEvents(new BreakSpawnerListener(messageHandler,this),this);
     }
 
     private void registerCommands(){
