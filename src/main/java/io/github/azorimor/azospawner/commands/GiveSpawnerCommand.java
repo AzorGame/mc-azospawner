@@ -36,7 +36,6 @@ public class GiveSpawnerCommand implements CommandExecutor {
                     // Syntax: /givespawner <entityType> [amount]
 
                     EntityType spawnMob = null;
-                    System.out.println("Args[0]: "+args[0]);
                     try {
                         spawnMob = EntityType.valueOf(args[0].toUpperCase());
                     } catch (IllegalArgumentException e) {
