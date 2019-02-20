@@ -3,6 +3,7 @@ package io.github.azorimor.azospawner.utils;
 import io.github.azorimor.azospawner.files.PluginFile;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
 public class MessageHandler  {
@@ -15,6 +16,9 @@ public class MessageHandler  {
     private String noPlayer;
     private String noPermission;
     private String wrongCommandUsage;
+    private String noNumber;
+    private String commandGiveSpawner;
+    private String noEntityType;
 
     public MessageHandler(PluginFile pluginFile) {
         this.pluginFile = pluginFile;
@@ -28,6 +32,9 @@ public class MessageHandler  {
         this.noPlayer = translateColorCodes(pluginFile.getString("command.message.noPlayer"));
         this.noPermission = translateColorCodes(pluginFile.getString("command.message.noPermission"));
         this.wrongCommandUsage = translateColorCodes(pluginFile.getString("command.message.wrongCommandUsage"));
+        this.noNumber = translateColorCodes(pluginFile.getString("command.message.noNumber"));
+        this.commandGiveSpawner = translateColorCodes(pluginFile.getString("command.message.giveSpawner"));
+        this.noEntityType = translateColorCodes(pluginFile.getString("command.message.noEntityType"));
     }
 
     /**
@@ -72,6 +79,29 @@ public class MessageHandler  {
         sender.sendMessage(prefix + wrongCommandUsage.replace("%command%",command.getName()).replace("%usage%",command.getUsage()));
     }
 
+    //TODO comment
+    public void sendPluginMessage(CommandSender sender, String message){
+        sender.sendMessage(translateColorCodes(message));
+    }
+
+    /**
+     * Sends a {@link CommandSender} the message, that he need to use a number as a specifig argument in a {@link Command}
+     * @param sender {@link CommandSender} which should recieve the message.
+     * @param wrongArgument The wrong Argument, which needs to be a number. This values is used as feedback to the {@link CommandSender}
+     */
+    public void sendNoNumber(CommandSender sender, String wrongArgument){
+        sender.sendMessage(prefix+ noNumber.replace("%wrongArgument%",wrongArgument));
+    }
+
+    //TODO comment
+    public void sendCommandGiveSpawnerSuccess(Player player, EntityType entityType, int amount){
+        player.sendMessage(prefix+commandGiveSpawner.replace("%type%",entityType.toString()).replace("%amount%",String.valueOf(amount)));
+    }
+
+    public void sendNoEntityType(CommandSender commandSender, String noEntityType){
+        commandSender.sendMessage(prefix+ noEntityType.replace("%wrongType%",noEntityType));
+        //TODO Ausgabe aller Möglichkeiten.
+    }
 
     public void reloadValues(){
         //TODO add more functionallity.

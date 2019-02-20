@@ -15,6 +15,7 @@ public class AzoSpawner extends JavaPlugin {
         super.onEnable();
 
         this.pluginFile = new PluginFile(this);
+        this.messageHandler = new MessageHandler(pluginFile);
 
         registerListeners();
         registerCommands();
@@ -31,7 +32,7 @@ public class AzoSpawner extends JavaPlugin {
     }
 
     private void registerCommands(){
-        getCommand("givespawner").setExecutor(new GiveSpawnerCommand(messageHandler));
+        getCommand("givespawner").setExecutor(new GiveSpawnerCommand(messageHandler, this));
     }
 
 }

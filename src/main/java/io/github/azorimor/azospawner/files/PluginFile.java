@@ -29,6 +29,9 @@ public class PluginFile {
         cfg.addDefault("command.message.noPlayer","Kein Spieler");
         cfg.addDefault("command.message.noPermission","Keine Rechte");
         cfg.addDefault("command.message.wrongCommandUsage","Falsche Befehlsverwendung");
+        cfg.addDefault("command.message.noNumber","Gib eine Zahl ein");
+        cfg.addDefault("command.message.giveSpawner","Du hast den spawner erhalten.");
+        cfg.addDefault("command.message.noEntityType","Bitte gieb einen gültigen EntityType an.");
 
         saveFile();
     }
