@@ -8,6 +8,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Recipe;
 
+
 public class MessageHandler  {
 
     private String prefix;
