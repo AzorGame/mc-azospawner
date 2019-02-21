@@ -49,13 +49,13 @@ public class PluginFile {
 
 
 
-        cfg.addDefault("crafting.pickaxe.itemName","SpawnerPick");
+        cfg.addDefault("crafting.pickaxe.itemName","&cSpawnerPick");
         cfg.addDefault("crafting.pickaxe.itemMaterial","GOLDEN_PICKAXE");
         ArrayList<String> pickLore = new ArrayList<String>();
-        pickLore.add("&7--------------------");
+        pickLore.add("&7&m                         ");
         pickLore.add("&6You can destroy Spawners");
         pickLore.add("&6by using this pickaxe.");
-        pickLore.add("&7--------------------");
+        pickLore.add("&7&m                         ");
         cfg.addDefault("crafting.pickaxe.itemLore", pickLore);
         cfg.addDefault("crafting.pickaxe.damage", 30);
         cfg.addDefault("crafting.pickaxe.recipe.firstrow","NNN");
