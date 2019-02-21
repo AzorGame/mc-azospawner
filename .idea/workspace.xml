@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="033abb60-3286-4cee-9b0e-d744e43c1ccf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/CraftPickaxeListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/files/PluginFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/files/PluginFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/BreakSpawnerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/BreakSpawnerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/MessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/recipe/SpawnerPickaxeRecipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/recipe/SpawnerPickaxeRecipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,19 +31,19 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="java" value="14658" />
+          <entry key="java" value="15086" />
           <entry key="md" value="1230" />
           <entry key="xml" value="5" />
-          <entry key="yml" value="295" />
+          <entry key="yml" value="296" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="14658" />
+          <entry key="JAVA" value="15086" />
           <entry key="Markdown" value="1230" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="XML" value="5" />
-          <entry key="YAML" value="295" />
+          <entry key="YAML" value="296" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -76,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/files/PluginFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+            <state relative-caret-position="765">
+              <caret line="126" column="88" selection-start-line="126" selection-start-column="88" selection-end-line="126" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5030#5031#0" expanded="true" />
@@ -90,8 +86,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/RecipeValues.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="72" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
+            <state relative-caret-position="476">
+              <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/recipe/SpawnerPickaxeRecipe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="34" column="45" lean-forward="true" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+            <state relative-caret-position="510">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -177,8 +173,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            <state relative-caret-position="68">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -214,15 +210,15 @@
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/recipe/SpawnerPickaxe.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/PickaxeItemTagType.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GivePickaxeCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/recipe/SpawnerPickaxeRecipe.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/RecipeValues.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/BreakSpawnerListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/MessageHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/CraftPickaxeListener.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/recipe/SpawnerPickaxeRecipe.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/files/PluginFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/RecipeValues.java" />
       </list>
     </option>
   </component>
@@ -364,7 +360,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550753856242" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550755026793" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -399,7 +395,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15671642" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15671642" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -409,7 +405,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24728851" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27548808" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -424,7 +420,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.07462686" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="7" visible="true" weight="0.07462686" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -490,13 +486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GiveSpawnerCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -557,28 +546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/recipe/SpawnerPickaxeRecipe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="34" column="45" lean-forward="true" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/files/PluginFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5030#5031#0" expanded="true" />
-            <element signature="e#5055#5056#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/CraftPickaxeListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -589,10 +556,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/files/PluginFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="126" column="88" selection-start-line="126" selection-start-column="88" selection-end-line="126" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5030#5031#0" expanded="true" />
+            <element signature="e#5055#5056#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/recipe/SpawnerPickaxeRecipe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/RecipeValues.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="72" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
+        <state relative-caret-position="476">
+          <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

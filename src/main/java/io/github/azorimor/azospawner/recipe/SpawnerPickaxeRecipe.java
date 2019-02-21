@@ -25,14 +25,21 @@ public class SpawnerPickaxeRecipe {
         this.pluginFile = pluginFile;
         this.key = new NamespacedKey(instance,"spawner_pickaxe");
 
-        pickaxe = new ItemStack(Material.GOLDEN_PICKAXE);
+        pickaxe = new ItemStack(pluginFile.getMaterial("crafting.pickaxe.itemMaterial"));
+
         ItemMeta pickMeta = pickaxe.getItemMeta();
+
         pickMeta.setDisplayName(pluginFile.getTranslatedString("crafting.pickaxe.itemName").replace('&','§'));
         pickMeta.setLore(pluginFile.getTranslatedStringList("crafting.pickaxe.itemLore"));
 
         pickMeta.getCustomTagContainer().setCustomTag(new NamespacedKey(instance,"breakspawner"),new PickaxeItemTagType(),true);
 
-        ((Damageable)pickMeta).setDamage(30);
+        int damage = pluginFile.getInt("crafting.pickaxe.damage");
+        if(damage == -1)
+            pickMeta.setUnbreakable(true);
+        else
+            ((Damageable)pickMeta).setDamage(damage);
+
         pickaxe.setItemMeta(pickMeta);
 
         this.recipe = new ShapedRecipe(key,pickaxe);
