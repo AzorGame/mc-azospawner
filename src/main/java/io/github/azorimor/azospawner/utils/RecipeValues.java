@@ -22,7 +22,7 @@ public class RecipeValues {
 
     public void addKeyPair(Character key, String materialValue){
         try {
-            values.put(key, Material.valueOf(materialValue));
+            values.put(key, Material.valueOf(materialValue.toUpperCase()));
         } catch (IllegalArgumentException e) {
             System.err.println("Please use a valid materialname in your config.yml file.");
             System.err.println("Following material is invalid: "+materialValue);

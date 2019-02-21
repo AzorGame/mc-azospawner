@@ -18,4 +18,4 @@ We are also working an a great Documentation, so you know exacly what to do.
 * More user friendly generated spawner names (maybe also customizable)
 * ...  
 You are welcome to suggest additional features [here](https://github.com/Azorimor/mc-azospawner/issues) _(on GitHub)_ 
-or [here](https://www.spigotmc.org/resources/) _(on SpigotMC.org)_.
+or [here](https://www.spigotmc.org/resources/azospawner-manage-your-spawners.65072/) _(on SpigotMC.org)_.

@@ -8,7 +8,7 @@ api-version: 1.13
 commands:
   givespawner:
     description: Gives the player an amount of specific spawners.
-    usage: /givespawner <entityType> [amount]
+    usage: givespawner <entityType> [amount]
   givepickaxe:
     description: Gives the player the pickaxe tool to break spawners.
-    usage: /givepickaxe [player]
+    usage: givepickaxe [player]
