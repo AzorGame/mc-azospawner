@@ -44,6 +44,8 @@ public class PluginFile {
         cfg.addDefault("command.message.givePickaxe","&7You recived the &bSpawner Pickaxe&7.");
         cfg.addDefault("command.message.givePickaxeOther","&7The player &b%target%&7 recived the &bSpawner Pickaxe&7.");
 
+        cfg.addDefault("crafting.message.noPermission","&7You do not have enought permissions to craft &b%item%&7.");
+
 
 
         cfg.addDefault("crafting.pickaxe.itemName","SpawnerPick");
@@ -108,6 +110,10 @@ public class PluginFile {
         return editedList;
     }
 
+
+    public int getInt(String path){
+        return cfg.getInt(path);
+    }
 
     /**
      * Saves this {@link PluginFile} to the disk at the plugin datafolder location.

@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Recipe;
 
 public class MessageHandler  {
 
@@ -23,6 +24,7 @@ public class MessageHandler  {
     private String playerOffline;
     private String commandGivePickaxe;
     private String commandGivePickaxeOther;
+    private String recipeNoPermission;
 
     public MessageHandler(PluginFile pluginFile) {
         this.pluginFile = pluginFile;
@@ -42,6 +44,7 @@ public class MessageHandler  {
         this.playerOffline = pluginFile.getTranslatedString("command.message.playerOffline");
         this.commandGivePickaxe = pluginFile.getTranslatedString("command.message.givePickaxe");
         this.commandGivePickaxeOther = pluginFile.getTranslatedString("command.message.givePickaxeOther");
+        this.recipeNoPermission = pluginFile.getTranslatedString("crafting.message.noPermission");
     }
 
     /**
@@ -88,7 +91,7 @@ public class MessageHandler  {
 
     //TODO comment
     public void sendPluginMessage(CommandSender sender, String message){
-        sender.sendMessage(translateColorCodes(message));
+        sender.sendMessage(prefix+ translateColorCodes(message));
     }
 
     /**
@@ -120,6 +123,10 @@ public class MessageHandler  {
 
     public void sendCommandGivePickaxeOtherSuccess(CommandSender sender, Player target){
         sender.sendMessage(prefix+commandGivePickaxeOther.replace("%target%",target.getDisplayName()));
+    }
+
+    public void sendRecipeNoPermission(Player player, Recipe recipe){
+        player.sendMessage(prefix+recipeNoPermission.replace("%item%",recipe.getResult().getItemMeta().getDisplayName()));
     }
 
     public void reloadValues(){
