@@ -3,6 +3,8 @@ package io.github.azorimor.azospawner.files;
 import io.github.azorimor.azospawner.AzoSpawner;
 import io.github.azorimor.azospawner.utils.RecipeValues;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
+
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -45,14 +47,20 @@ public class PluginFile {
         cfg.addDefault("command.message.givePickaxeOther","&7The player &b%target%&7 recived the &bSpawner Pickaxe&7.");
 
 
+        cfg.addDefault("crafting.message.noPermission","&7You do not have enought permissions to craft &b%item%&7.");
 
-        cfg.addDefault("crafting.pickaxe.itemName","SpawnerPick");
+
+
+        cfg.addDefault("crafting.pickaxe.itemName","&cSpawnerPick");
+        cfg.addDefault("crafting.pickaxe.itemMaterial","GOLDEN_PICKAXE");
         ArrayList<String> pickLore = new ArrayList<String>();
-        pickLore.add("&7--------------------");
+        pickLore.add("&7&m                         ");
         pickLore.add("&6You can destroy Spawners");
         pickLore.add("&6by using this pickaxe.");
-        pickLore.add("&7--------------------");
+        pickLore.add("&7&m                         ");
         cfg.addDefault("crafting.pickaxe.itemLore", pickLore);
+        cfg.addDefault("crafting.pickaxe.damage", 30);
+
         cfg.addDefault("crafting.pickaxe.recipe.firstrow","NNN");
         cfg.addDefault("crafting.pickaxe.recipe.secondrow","_O_");
         cfg.addDefault("crafting.pickaxe.recipe.thirdrow","_O_");
@@ -108,6 +116,21 @@ public class PluginFile {
         return editedList;
     }
 
+
+    public int getInt(String path){
+        return cfg.getInt(path);
+    }
+
+    public Material getMaterial(String path){
+        Material material = Material.AIR;
+        try {
+            material = Material.valueOf(cfg.getString(path).toUpperCase());
+        } catch (IllegalArgumentException e) {
+            instance.getLogger().warning("The Material on the path '"+path+"' is invalid. The plugin won't work properly.");
+            instance.getLogger().warning("You probably will see some other errors below.");
+        }
+        return material;
+    }
 
     /**
      * Saves this {@link PluginFile} to the disk at the plugin datafolder location.

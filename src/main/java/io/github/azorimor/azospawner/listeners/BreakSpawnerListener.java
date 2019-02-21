@@ -34,7 +34,8 @@ public class BreakSpawnerListener implements Listener {
             ItemStack breakTool = event.getPlayer().getInventory().getItemInMainHand();
             ItemMeta breakMeta = breakTool.getItemMeta();
 
-            if(breakMeta.getCustomTagContainer().hasCustomTag(new NamespacedKey(instance,"breakspawner"),new PickaxeItemTagType())){
+            if(breakMeta != null && breakMeta.getCustomTagContainer().hasCustomTag(new NamespacedKey(instance,"breakspawner"),new PickaxeItemTagType())){
+
 
                 ItemStack spawner = new ItemStack(Material.SPAWNER);
                 ItemMeta spawnerMeta = spawner.getItemMeta();
