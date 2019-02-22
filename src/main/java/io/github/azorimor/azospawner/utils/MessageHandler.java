@@ -139,14 +139,13 @@ public class MessageHandler {
     public void sendCommandGiveSpawnerOtherSuccess(CommandSender sender, EntityType type, int amount, Player target) {
         sender.sendMessage(prefix + commandGiveSpawnerOther
                 .replace("%target%", target.getDisplayName())
-                .replace("amount", String.valueOf(amount))
-                .replace("type", type.toString()));
+                .replace("%amount%", String.valueOf(amount))
+                .replace("%type%", type.toString()));
     }
 
 
     public void sendNoEntityType(CommandSender commandSender, String noEntityType) {
         commandSender.sendMessage(prefix + this.noEntityType.replace("%wrongType%", noEntityType));
-        //TODO Ausgabe aller Möglichkeiten.
     }
 
     public void sendPlayerOffline(CommandSender sender, String targetPlayerName) {

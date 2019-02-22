@@ -28,6 +28,7 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
 
     private List<String> availableTypesString;
     private List<String> digits;
+    private String spawnerColor;
 
     public GiveSpawnerCommand(MessageHandler messageHandler, AzoSpawner instance) {
         this.messageHandler = messageHandler;
@@ -38,7 +39,8 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
                 availableTypes) {
             availableTypesString.add(type.toString());
         }
-        digits = new ArrayList<String>(Arrays.asList(new String[]{"1","2","3","4","5","6","7","8","9","10"}));
+        digits = new ArrayList<String>(Arrays.asList(new String[]{"1","2","3","4","5","6","7","8","9"}));
+        this.spawnerColor = instance.getPluginFile().getTranslatedString("spawner.color");
     }
 
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
@@ -64,11 +66,18 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
                         try {
                             int amount = Integer.valueOf(args[1]);
 
+                            if(amount <= 0){
+                                amount = Math.abs(amount);
+                                if(amount == 0)
+                                    amount = 1;
+                            }
 
                             if (args.length == 3) {
                                 Player target = Bukkit.getPlayer(args[2]);
                                 if (target != null) {
                                     giveSpawnerToPlayer(target, spawnMob, amount);
+                                    messageHandler.sendCommandGiveSpawnerOtherSuccess(commandSender,spawnMob,amount,target);
+
                                 } else {
                                     messageHandler.sendPlayerOffline(commandSender, args[2]);
                                 }
@@ -107,7 +116,7 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
 
         spawnerMeta.getCustomTagContainer().setCustomTag(new NamespacedKey(instance, "mobspawntype"),
                 new SpawnerItemTagType(), entityType);
-        spawnerMeta.setDisplayName("§3" + entityType.toString());
+        spawnerMeta.setDisplayName(spawnerColor + entityType.toString());
 
         spawner.setItemMeta(spawnerMeta);
 

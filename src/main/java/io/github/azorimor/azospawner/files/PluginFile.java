@@ -36,12 +36,14 @@ public class PluginFile {
         cfg.options().copyDefaults(true);
 
         cfg.addDefault("prefix","&7[&cAzo&bSpawner&7] &r");
+        cfg.addDefault("spawner.color","&3");
 
         cfg.addDefault("command.message.noPlayer","Only players can perform this command.");
         cfg.addDefault("command.message.noPermission","&7You don't have enought permissions for the command &b/%command%&7.");
         cfg.addDefault("command.message.wrongCommandUsage","&7You used the command &b/%command% &7the wrong way. Just try something similar to &b/%usage%&7.");
         cfg.addDefault("command.message.noNumber","&7Please enter a valid number instead of &b%wrongArgument%&7.");
         cfg.addDefault("command.message.giveSpawner","&7You recived &b%amount% &7spawner(s), which spawns &b%type%&7.");
+        cfg.addDefault("command.message.giveSpawnerOther","&7You gave &b%target%&7 &b%amount% &b%type% &7spawner(s).");
         cfg.addDefault("command.message.noEntityType","&7Please enter a valid entitytype instead of &b%wrongType%&7.");
         cfg.addDefault("command.message.playerOffline","&7The player &b%player% &7is offline.");
         cfg.addDefault("command.message.givePickaxe","&7You recived the &bSpawner Pickaxe&7.");
