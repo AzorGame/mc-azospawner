@@ -30,7 +30,7 @@ public class PluginHelpCommand implements CommandExecutor, TabCompleter {
         try {
             if(instance.getUpdateChecker().checkForUpdate()){
                 this.messages.add("&7Update: &bavailable");
-                this.messages.add("&7(&b "+instance.getUpdateChecker().getResourceUrl()+" &7)");
+                this.messages.add("&b"+instance.getUpdateChecker().getResourceUrl());
             } else {
                 this.messages.add("&7Update: &bnone");
             }
