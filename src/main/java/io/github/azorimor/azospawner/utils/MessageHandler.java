@@ -10,6 +10,7 @@ import org.bukkit.inventory.Recipe;
 
 import java.util.List;
 
+
 public class MessageHandler  {
 
     private String prefix;

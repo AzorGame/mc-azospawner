@@ -5,7 +5,9 @@ import io.github.azorimor.azospawner.commands.GiveSpawnerCommand;
 import io.github.azorimor.azospawner.commands.PluginHelpCommand;
 import io.github.azorimor.azospawner.files.PluginFile;
 import io.github.azorimor.azospawner.listeners.BreakSpawnerListener;
+
 import io.github.azorimor.azospawner.listeners.CraftPickaxeListener;
+
 import io.github.azorimor.azospawner.listeners.PlaceSpawnerListener;
 import io.github.azorimor.azospawner.recipe.SpawnerPickaxeRecipe;
 import io.github.azorimor.azospawner.utils.MessageHandler;
@@ -47,7 +49,9 @@ public class AzoSpawner extends JavaPlugin {
     private void registerListeners(){
         getServer().getPluginManager().registerEvents(new PlaceSpawnerListener(this),this);
         getServer().getPluginManager().registerEvents(new BreakSpawnerListener(messageHandler,this),this);
+
         getServer().getPluginManager().registerEvents(new CraftPickaxeListener(messageHandler,this),this);
+
     }
 
     private void registerCommands(){
@@ -81,6 +85,7 @@ public class AzoSpawner extends JavaPlugin {
             getLogger().info("Could not check for updates. Please check your internet connection.");
         }
     }
+
 
     public PluginFile getPluginFile() {
         return pluginFile;
