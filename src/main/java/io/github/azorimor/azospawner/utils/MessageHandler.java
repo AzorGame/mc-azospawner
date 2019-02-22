@@ -8,6 +8,8 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Recipe;
 
+import java.util.List;
+
 public class MessageHandler  {
 
     private String prefix;
@@ -92,6 +94,13 @@ public class MessageHandler  {
     //TODO comment
     public void sendPluginMessage(CommandSender sender, String message){
         sender.sendMessage(prefix+ translateColorCodes(message));
+    }
+
+    public void sendPluginMessage(CommandSender sender, List<String> messages){
+        for (String msg :
+                messages) {
+            sendPluginMessage(sender,msg);
+        }
     }
 
     /**

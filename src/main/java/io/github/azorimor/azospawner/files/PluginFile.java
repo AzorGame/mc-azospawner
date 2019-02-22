@@ -2,6 +2,7 @@ package io.github.azorimor.azospawner.files;
 
 import io.github.azorimor.azospawner.AzoSpawner;
 import io.github.azorimor.azospawner.utils.RecipeValues;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -123,8 +124,8 @@ public class PluginFile {
         try {
             material = Material.valueOf(cfg.getString(path).toUpperCase());
         } catch (IllegalArgumentException e) {
-            instance.getLogger().warning("The Material on the path '"+path+"' is invalid. The plugin won't work properly.");
-            instance.getLogger().warning("You probably will see some other errors below.");
+            instance.getLogger().warning("The Material on the path '"+path+"' is invalid. The plugin won't work properly. So the plugin gets disabled");
+            Bukkit.getPluginManager().disablePlugin(instance);
         }
         return material;
     }
