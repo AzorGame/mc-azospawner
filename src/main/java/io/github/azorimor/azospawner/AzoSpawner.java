@@ -99,6 +99,15 @@ public class AzoSpawner extends JavaPlugin {
         return messageHandler;
     }
 
+
+    public PluginFile getPluginFile() {
+        return pluginFile;
+    }
+
+    public MessageHandler getMessageHandler() {
+        return messageHandler;
+    }
+
     public SpawnerPickaxeRecipe getRecipe() {
         return recipe;
     }

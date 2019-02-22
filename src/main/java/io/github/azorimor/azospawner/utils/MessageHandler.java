@@ -164,7 +164,7 @@ public class MessageHandler {
         player.sendMessage(prefix + recipeNoPermission.replace("%item%", recipe.getResult().getItemMeta().getDisplayName()));
     }
 
-    public void reloadValues() {
+    public void reloadValues(){
         //TODO add more functionallity.
         loadDefaults();
     }
