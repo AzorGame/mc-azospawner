@@ -114,7 +114,7 @@ public class MessageHandler {
     public void sendTeamBroadcast(String message) {
         for (Player team :
                 Bukkit.getOnlinePlayers()) {
-            if (team.hasPermission("azospawner.team")) {
+            if (team.hasPermission("azospawner.team.member") || team.hasPermission("azospawner.team.admin")) {
                 team.sendMessage(prefix + translateColorCodes(message));
             }
         }
