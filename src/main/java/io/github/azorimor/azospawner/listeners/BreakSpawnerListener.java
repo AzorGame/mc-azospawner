@@ -18,9 +18,14 @@ public class BreakSpawnerListener implements Listener {
     private MessageHandler messageHandler;
     private AzoSpawner instance;
 
+    private final String spawnerColor;
+
     public BreakSpawnerListener(MessageHandler messageHandler, AzoSpawner instance) {
         this.messageHandler = messageHandler;
         this.instance = instance;
+
+        this.spawnerColor = instance.getPluginFile().getTranslatedString("spawner.color");
+        System.out.println(spawnerColor);
     }
 
 
@@ -43,7 +48,7 @@ public class BreakSpawnerListener implements Listener {
                 spawnerMeta.getCustomTagContainer().setCustomTag(new NamespacedKey(instance, "mobspawntype"),
                         new SpawnerItemTagType(), creatureSpawner.getSpawnedType());
 
-                spawnerMeta.setDisplayName("§3"+creatureSpawner.getSpawnedType().toString());
+                spawnerMeta.setDisplayName(spawnerColor+creatureSpawner.getSpawnedType().toString());
                 spawner.setItemMeta(spawnerMeta);
 
                 event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(),spawner);

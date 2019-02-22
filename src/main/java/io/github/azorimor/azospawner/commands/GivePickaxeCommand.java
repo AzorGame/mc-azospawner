@@ -6,9 +6,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 
-public class GivePickaxeCommand implements CommandExecutor {
+import java.util.ArrayList;
+import java.util.List;
+
+public class GivePickaxeCommand implements CommandExecutor, TabCompleter {
 
 
     private MessageHandler messageHandler;
@@ -54,5 +59,21 @@ public class GivePickaxeCommand implements CommandExecutor {
             messageHandler.sendNoPlayer(commandSender);
         }
         return true;
+    }
+
+    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] args) {
+
+        List<String> completions = new ArrayList<String>();
+
+        if (args.length == 1) {
+            List<String> playernames = new ArrayList<String>(Bukkit.getOnlinePlayers().size());
+            for (Player online :
+                    Bukkit.getOnlinePlayers()) {
+                playernames.add(online.getName());
+            }
+            StringUtil.copyPartialMatches(args[0], playernames, completions);
+        }
+
+        return completions;
     }
 }

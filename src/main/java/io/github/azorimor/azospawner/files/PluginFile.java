@@ -2,6 +2,7 @@ package io.github.azorimor.azospawner.files;
 
 import io.github.azorimor.azospawner.AzoSpawner;
 import io.github.azorimor.azospawner.utils.RecipeValues;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
@@ -35,12 +36,14 @@ public class PluginFile {
         cfg.options().copyDefaults(true);
 
         cfg.addDefault("prefix","&7[&cAzo&bSpawner&7] &r");
+        cfg.addDefault("spawner.color","&3");
 
         cfg.addDefault("command.message.noPlayer","Only players can perform this command.");
         cfg.addDefault("command.message.noPermission","&7You don't have enought permissions for the command &b/%command%&7.");
         cfg.addDefault("command.message.wrongCommandUsage","&7You used the command &b/%command% &7the wrong way. Just try something similar to &b/%usage%&7.");
         cfg.addDefault("command.message.noNumber","&7Please enter a valid number instead of &b%wrongArgument%&7.");
         cfg.addDefault("command.message.giveSpawner","&7You recived &b%amount% &7spawner(s), which spawns &b%type%&7.");
+        cfg.addDefault("command.message.giveSpawnerOther","&7You gave &b%target%&7 &b%amount% &b%type% &7spawner(s).");
         cfg.addDefault("command.message.noEntityType","&7Please enter a valid entitytype instead of &b%wrongType%&7.");
         cfg.addDefault("command.message.playerOffline","&7The player &b%player% &7is offline.");
         cfg.addDefault("command.message.givePickaxe","&7You recived the &bSpawner Pickaxe&7.");
@@ -126,8 +129,8 @@ public class PluginFile {
         try {
             material = Material.valueOf(cfg.getString(path).toUpperCase());
         } catch (IllegalArgumentException e) {
-            instance.getLogger().warning("The Material on the path '"+path+"' is invalid. The plugin won't work properly.");
-            instance.getLogger().warning("You probably will see some other errors below.");
+            instance.getLogger().warning("The Material on the path '"+path+"' is invalid. The plugin won't work properly. So the plugin gets disabled");
+            Bukkit.getPluginManager().disablePlugin(instance);
         }
         return material;
     }
