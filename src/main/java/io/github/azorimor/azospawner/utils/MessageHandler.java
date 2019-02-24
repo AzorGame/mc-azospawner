@@ -31,6 +31,8 @@ public class MessageHandler {
     private String commandGivePickaxeOther;
     private String recipeNoPermission;
 
+    private String spawnerChange;
+
     public MessageHandler(PluginFile pluginFile) {
         this.pluginFile = pluginFile;
 
@@ -51,6 +53,7 @@ public class MessageHandler {
         this.commandGivePickaxe = pluginFile.getTranslatedString("command.message.givePickaxe");
         this.commandGivePickaxeOther = pluginFile.getTranslatedString("command.message.givePickaxeOther");
         this.recipeNoPermission = pluginFile.getTranslatedString("crafting.message.noPermission");
+        this.spawnerChange = pluginFile.getTranslatedString("spawner.message.changeSpawner");
     }
 
     /**
@@ -174,6 +177,10 @@ public class MessageHandler {
 
     public void sendRecipeNoPermission(Player player, Recipe recipe) {
         player.sendMessage(prefix + recipeNoPermission.replace("%item%", recipe.getResult().getItemMeta().getDisplayName()));
+    }
+
+    public void sendSpawnerTypeChanged(Player player, EntityType oldType, EntityType newType){
+        player.sendMessage(prefix+spawnerChange.replace("%oldType%",oldType.toString()).replace("%newType%",newType.toString()));
     }
 
     public void reloadValues(){

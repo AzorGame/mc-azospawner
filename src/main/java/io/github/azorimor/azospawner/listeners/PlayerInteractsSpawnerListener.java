@@ -1,6 +1,7 @@
 package io.github.azorimor.azospawner.listeners;
 
 import io.github.azorimor.azospawner.AzoSpawner;
+import io.github.azorimor.azospawner.files.PluginFile;
 import io.github.azorimor.azospawner.utils.MessageHandler;
 import io.github.azorimor.azospawner.utils.SpawnerDataUtils;
 import org.bukkit.Bukkit;
@@ -31,11 +32,17 @@ public class PlayerInteractsSpawnerListener implements Listener {
     private List<ItemStack> spawnEggs;
     private MessageHandler messageHandler;
     private SpawnerDataUtils spawnerDataUtils;
+    private PluginFile config;
+
+    private String guiName;
+    private String spawnEggName;
+    private List<String> spawnEggMeta;
 
     public PlayerInteractsSpawnerListener(AzoSpawner instance) {
         this.instance = instance;
         this.messageHandler = instance.getMessageHandler();
         this.spawnerDataUtils = new SpawnerDataUtils();
+        this.config = instance.getPluginFile();
 
         List<EntityType> availableTypes = new ArrayList<EntityType>(Arrays.asList(EntityType.values()));
 
@@ -45,6 +52,9 @@ public class PlayerInteractsSpawnerListener implements Listener {
             availableTypesString.add(type.toString());
         }
 
+        this.guiName = config.getTranslatedString("spawner.gui.name");
+        this.spawnEggName = config.getTranslatedString("spawner.gui.item.egg.name");
+        this.spawnEggMeta = config.getTranslatedStringList("spawner.gui.item.egg.meta");
         loadSpawnEggsStacks();
     }
 
@@ -54,7 +64,7 @@ public class PlayerInteractsSpawnerListener implements Listener {
             Block clickedBlock = event.getClickedBlock();
             if (clickedBlock.getType() == Material.SPAWNER) {
                 Player player = event.getPlayer();
-                if (player.hasPermission("azospawner.interact.spawner.use")) {
+                if (player.hasPermission("azospawner.interact.spawner")) {
                     event.setCancelled(true);
                     openSpawnerGUI(player);
                     player.setMetadata("spawnerChangeLocation", new FixedMetadataValue(instance, clickedBlock));
@@ -66,24 +76,25 @@ public class PlayerInteractsSpawnerListener implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event) {
         Inventory clickedInv = event.getClickedInventory();
-        if (clickedInv != null && clickedInv.getName().equalsIgnoreCase("§eSpawner§cGUI")) {
+        if (clickedInv != null && clickedInv.getName().equalsIgnoreCase(guiName)) {
             event.setCancelled(true);
             Player player = (Player) event.getWhoClicked();
-            if (player.hasMetadata("spawnerChangeLocation")) {
+            ItemStack clickedItem = event.getCurrentItem();
+            if (clickedItem.getType() != Material.AIR && player.hasMetadata("spawnerChangeLocation")) {
                 Block spawnBlock = (Block) player.getMetadata("spawnerChangeLocation").get(0).value();
                 CreatureSpawner spawner = (CreatureSpawner) spawnBlock.getState();
-                ItemStack clickedItem = event.getCurrentItem();
+                EntityType oldType = spawner.getSpawnedType();
                 spawner.setSpawnedType(EntityType.valueOf(clickedItem.getType().toString().replace("_SPAWN_EGG", "").toUpperCase()));
                 spawner.update();
                 player.closeInventory();
-                messageHandler.sendPluginMessage(player, "&7Du hast den Spawner verändert.");
+                messageHandler.sendSpawnerTypeChanged(player,oldType,spawner.getSpawnedType());
             }
         }
     }
 
 
     private void openSpawnerGUI(Player player) {
-        Inventory gui = Bukkit.createInventory(null, 9 * 6, "§eSpawner§cGUI");
+        Inventory gui = Bukkit.createInventory(null, 54, guiName);
 
         for (ItemStack egg :
                 spawnEggs) {
@@ -100,34 +111,15 @@ public class PlayerInteractsSpawnerListener implements Listener {
         this.spawnEggs = new ArrayList<ItemStack>();
         for (Material type :
                 spawnerDataUtils.getSpawnEggs()) {
-            String spawnType = type.toString().replace("_SPAWN_EGG", "").toLowerCase();
+            String spawnType = type.toString().replace("_SPAWN_EGG", "");
 
             ItemStack egg = new ItemStack(type);
             ItemMeta eggMeta = egg.getItemMeta();
-            eggMeta.setDisplayName("§a" + spawnType);
-            eggMeta.setLore(Arrays.asList(new String[]{"§fÄndere den SpawnerTyp."}));
+            eggMeta.setDisplayName(spawnEggName.replace("%type%",spawnType));
+            eggMeta.setLore(spawnEggMeta);
             egg.setItemMeta(eggMeta);
 
             spawnEggs.add(egg);
         }
     }
-
-    /**
-    private List<Material> loadSpawnEggsMaterial() {
-        ArrayList<Material> eggs = new ArrayList<Material>();
-
-        List<EntityType> availableTypesTest = new ArrayList<EntityType>(Arrays.asList(EntityType.values()));
-        for (EntityType type :
-                availableTypesTest) {
-            try {
-                eggs.add(Material.valueOf(type+"_SPAWN_EGG"));
-            } catch (IllegalArgumentException e) {
-                continue;
-            }
-        }
-
-        Collections.sort(eggs);
-
-        return eggs;
-    }*/
 }

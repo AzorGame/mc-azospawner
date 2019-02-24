@@ -12,6 +12,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,6 +38,11 @@ public class PluginFile {
 
         cfg.addDefault("prefix","&7[&cAzo&bSpawner&7] &r");
         cfg.addDefault("spawner.color","&3");
+        cfg.addDefault("spawner.gui.name","&eSpawner&cGUI");
+        cfg.addDefault("spawner.gui.item.egg.name","&e%type%");
+        cfg.addDefault("spawner.gui.item.egg.meta", Arrays.asList(new String[]{"&3Change the spawning mob","&3of this spawner."}));
+        cfg.addDefault("spawner.message.changeSpawner","&7You successfully changed the spawnertype from &b%oldType% &7to &b%newType%&7.");
+
 
         cfg.addDefault("command.message.noPlayer","Only players can perform this command.");
         cfg.addDefault("command.message.noPermission","&7You don't have enought permissions for the command &b/%command%&7.");
