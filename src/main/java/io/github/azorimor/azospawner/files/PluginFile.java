@@ -43,7 +43,6 @@ public class PluginFile {
         cfg.addDefault("spawner.gui.item.egg.meta", Arrays.asList(new String[]{"&3Change the spawning mob","&3of this spawner."}));
         cfg.addDefault("spawner.message.changeSpawner","&7You successfully changed the spawnertype from &b%oldType% &7to &b%newType%&7.");
 
-
         cfg.addDefault("command.message.noPlayer","Only players can perform this command.");
         cfg.addDefault("command.message.noPermission","&7You don't have enought permissions for the command &b/%command%&7.");
         cfg.addDefault("command.message.wrongCommandUsage","&7You used the command &b/%command% &7the wrong way. Just try something similar to &b/%usage%&7.");

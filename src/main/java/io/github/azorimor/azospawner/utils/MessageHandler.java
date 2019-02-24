@@ -149,6 +149,7 @@ public class MessageHandler {
     }
 
 
+
     /**
      * Sends a {@link CommandSender} the message, that another {@link Player} recived spawners.
      * @param sender {@link CommandSender} who gave the spawner to the other {@link Player}.
@@ -194,7 +195,6 @@ public class MessageHandler {
 
     public void sendNoWorld(CommandSender sender, String wrongWorldName){
         sender.sendMessage(prefix+noWorld.replace("%world%",wrongWorldName));
-    }
 
     public void reloadValues(){
         //TODO add more functionallity.

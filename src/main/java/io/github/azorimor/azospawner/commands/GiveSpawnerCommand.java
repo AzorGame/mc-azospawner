@@ -32,10 +32,15 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
     private List<String> digits;
     private String spawnerColor;
 
+    private List<String> availableTypesString;
+    private List<String> digits;
+    private String spawnerColor;
+
     public GiveSpawnerCommand(MessageHandler messageHandler, AzoSpawner instance) {
         this.messageHandler = messageHandler;
         this.instance = instance;
         this.spawnerDataUtils = new SpawnerDataUtils();
+
         List<EntityType> availableTypes = new ArrayList<EntityType>(Arrays.asList(EntityType.values()));
         availableTypesString = new ArrayList<String>(availableTypes.size());
         for (EntityType type :
