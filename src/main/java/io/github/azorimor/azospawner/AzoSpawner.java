@@ -4,12 +4,8 @@ import io.github.azorimor.azospawner.commands.GivePickaxeCommand;
 import io.github.azorimor.azospawner.commands.GiveSpawnerCommand;
 import io.github.azorimor.azospawner.commands.PluginHelpCommand;
 import io.github.azorimor.azospawner.files.PluginFile;
-import io.github.azorimor.azospawner.listeners.BreakSpawnerListener;
+import io.github.azorimor.azospawner.listeners.*;
 
-import io.github.azorimor.azospawner.listeners.CraftPickaxeListener;
-
-import io.github.azorimor.azospawner.listeners.PlaceSpawnerListener;
-import io.github.azorimor.azospawner.listeners.PlayerJoinListener;
 import io.github.azorimor.azospawner.recipe.SpawnerPickaxeRecipe;
 import io.github.azorimor.azospawner.utils.MessageHandler;
 import io.github.azorimor.azospawner.utils.UpdateChecker;
@@ -53,6 +49,7 @@ public class AzoSpawner extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new CraftPickaxeListener(messageHandler,this),this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(messageHandler,this),this);
+        getServer().getPluginManager().registerEvents(new PlayerInteractsSpawnerListener(this),this);
 
     }
 

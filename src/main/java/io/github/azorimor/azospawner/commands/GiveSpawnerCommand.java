@@ -109,6 +109,13 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
         return true;
     }
 
+    /**
+     * Gives the {@link Player} the requested spawner and sends him a message, which contains, that he
+     * recived the spawner.
+     * @param target The {@link Player} who should recive the spawner and the message.
+     * @param entityType The {@link EntityType} which the spawner should spawn.
+     * @param amount The amount of the spawner given to the player.
+     */
     private void giveSpawnerToPlayer(Player target, EntityType entityType, int amount) {
         ItemStack spawner = new ItemStack(Material.SPAWNER, amount);
 

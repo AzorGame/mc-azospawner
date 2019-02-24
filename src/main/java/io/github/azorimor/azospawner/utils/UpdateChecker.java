@@ -27,9 +27,19 @@ public class UpdateChecker {
         }
     }
 
+    /**
+     *
+     * @return A {@link String} which is an url to the spigotmc.org ressource download for this plugin.
+     */
     public String getResourceUrl(){
         return "https://spigotmc.org/resources/"+projectID;
     }
+
+    /**
+     * Checks for an available update.
+     * @return <code>true</code>, if an update is available.
+     * @throws IOException
+     */
     public boolean checkForUpdate() throws IOException {
         URLConnection con = checkURL.openConnection();
         newVersion = new BufferedReader(new InputStreamReader(con.getInputStream())).readLine();

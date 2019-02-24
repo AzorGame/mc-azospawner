@@ -130,12 +130,24 @@ public class MessageHandler {
         sender.sendMessage(prefix + noNumber.replace("%wrongArgument%", wrongArgument));
     }
 
-    //TODO comment
+    /**
+     * Sends the {@link Player} the message, that he successfully recived a spawner.
+     * @param player {@link Player} who recived the spawner.
+     * @param entityType {@link EntityType} which is spawned by the spawner.
+     * @param amount The amount of given spawners.
+     */
     public void sendCommandGiveSpawnerSuccess(Player player, EntityType entityType, int amount) {
         player.sendMessage(prefix + commandGiveSpawner.replace("%type%", entityType.toString()).replace("%amount%", String.valueOf(amount)));
     }
 
 
+    /**
+     * Sends a {@link CommandSender} the message, that another {@link Player} recived spawners.
+     * @param sender {@link CommandSender} who gave the spawner to the other {@link Player}.
+     * @param type {@link EntityType} which is spawned by the spawner.
+     * @param amount The amount of given spawners.
+     * @param target The {@link Player} who recived the spawerns.
+     */
     public void sendCommandGiveSpawnerOtherSuccess(CommandSender sender, EntityType type, int amount, Player target) {
         sender.sendMessage(prefix + commandGiveSpawnerOther
                 .replace("%target%", target.getDisplayName())
