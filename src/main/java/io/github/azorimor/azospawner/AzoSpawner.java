@@ -92,14 +92,6 @@ public class AzoSpawner extends JavaPlugin {
         return pluginFile;
     }
 
-    public MessageHandler getMessageHandler() {
-        return messageHandler;
-    }
-
-
-    public PluginFile getPluginFile() {
-        return pluginFile;
-    }
 
     public MessageHandler getMessageHandler() {
         return messageHandler;

@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="033abb60-3286-4cee-9b0e-d744e43c1ccf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/PlayerInteractsSpawnerListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/SpawnerDataUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GiveSpawnerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GiveSpawnerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/BreakSpawnerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/BreakSpawnerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/PlayerJoinListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/MessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/UpdateChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/UpdateChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,28 +19,28 @@
     <session id="500032583">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="24" />
+          <entry key="java" value="25" />
           <entry key="xml" value="3" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="24" />
+          <entry key="JAVA" value="25" />
           <entry key="XML" value="3" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5270" />
+          <entry key="java" value="5326" />
           <entry key="xml" value="2" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5270" />
+          <entry key="JAVA" value="5326" />
           <entry key="XML" value="2" />
           <entry key="YAML" value="1" />
         </counts>
@@ -69,22 +61,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="51" column="101" selection-start-line="51" selection-start-column="101" selection-end-line="51" selection-end-column="101" />
+            <state relative-caret-position="705">
+              <caret line="93" selection-start-line="93" selection-end-line="93" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#registerRecipes#0;class#AzoSpawner#0" />
                 <element signature="method#checkUpdates#0;class#AzoSpawner#0" />
+                <element signature="e#3580#3581#0" expanded="true" />
+                <element signature="e#3617#3618#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/PlayerInteractsSpawnerListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/PlayerInteractsSpawnerListener.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GiveSpawnerCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-825">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="229">
+              <caret line="143" column="96" selection-start-line="143" selection-start-column="96" selection-end-line="143" selection-end-column="96" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,15 +171,15 @@
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/PluginHelpCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/files/PluginFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/PlayerJoinListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GiveSpawnerCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/UpdateChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/MessageHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/BreakSpawnerListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/utils/SpawnerDataUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/PlayerInteractsSpawnerListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GiveSpawnerCommand.java" />
       </list>
     </option>
   </component>
@@ -312,7 +321,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551002982528" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551003389846" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -352,7 +361,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27548808" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27548808" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -367,7 +376,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info active="true" anchor="right" id="Maven Projects" order="7" visible="true" weight="0.07462686" />
+      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.07462686" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -431,16 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GiveSpawnerCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/PluginHelpCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -464,18 +463,6 @@
           <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="51" column="101" selection-start-line="51" selection-start-column="101" selection-end-line="51" selection-end-column="101" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#registerRecipes#0;class#AzoSpawner#0" />
-            <element signature="method#checkUpdates#0;class#AzoSpawner#0" />
           </folding>
         </state>
       </provider>
@@ -507,10 +494,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/AzoSpawner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#registerRecipes#0;class#AzoSpawner#0" />
+            <element signature="method#checkUpdates#0;class#AzoSpawner#0" />
+            <element signature="e#3580#3581#0" expanded="true" />
+            <element signature="e#3617#3618#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/listeners/PlayerInteractsSpawnerListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-825">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="450">
+          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/azorimor/azospawner/commands/GiveSpawnerCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="143" column="96" selection-start-line="143" selection-start-column="96" selection-end-line="143" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
