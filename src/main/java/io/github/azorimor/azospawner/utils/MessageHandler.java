@@ -3,6 +3,7 @@ package io.github.azorimor.azospawner.utils;
 import io.github.azorimor.azospawner.files.PluginFile;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
@@ -30,6 +31,8 @@ public class MessageHandler {
     private String commandGivePickaxe;
     private String commandGivePickaxeOther;
     private String recipeNoPermission;
+    private String commandKillMobsSuccess;
+    private String noWorld;
 
     private String spawnerChange;
 
@@ -54,6 +57,8 @@ public class MessageHandler {
         this.commandGivePickaxeOther = pluginFile.getTranslatedString("command.message.givePickaxeOther");
         this.recipeNoPermission = pluginFile.getTranslatedString("crafting.message.noPermission");
         this.spawnerChange = pluginFile.getTranslatedString("spawner.message.changeSpawner");
+        this.commandKillMobsSuccess = pluginFile.getTranslatedString("command.message.killMobs");
+        this.noWorld = pluginFile.getTranslatedString("command.message.noWorld");
     }
 
     /**
@@ -181,6 +186,14 @@ public class MessageHandler {
 
     public void sendSpawnerTypeChanged(Player player, EntityType oldType, EntityType newType){
         player.sendMessage(prefix+spawnerChange.replace("%oldType%",oldType.toString()).replace("%newType%",newType.toString()));
+    }
+
+    public void sendCommandKillMobsSuccess(CommandSender sender, int killedAmount, String world){
+        sender.sendMessage(prefix+commandKillMobsSuccess.replace("%amount%",String.valueOf(killedAmount)).replace("%world%",world));
+    }
+
+    public void sendNoWorld(CommandSender sender, String wrongWorldName){
+        sender.sendMessage(prefix+noWorld.replace("%world%",wrongWorldName));
     }
 
     public void reloadValues(){

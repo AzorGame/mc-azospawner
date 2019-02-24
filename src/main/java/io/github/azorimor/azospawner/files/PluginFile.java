@@ -54,6 +54,8 @@ public class PluginFile {
         cfg.addDefault("command.message.playerOffline","&7The player &b%player% &7is offline.");
         cfg.addDefault("command.message.givePickaxe","&7You recived the &bSpawner Pickaxe&7.");
         cfg.addDefault("command.message.givePickaxeOther","&7The player &b%target%&7 recived the &bSpawner Pickaxe&7.");
+        cfg.addDefault("command.message.killMobs","&b%amount%&7 Mobs have been killed in the world &b%world%&7.");
+        cfg.addDefault("command.message.noWorld","&7The world &b%world%&7 is no loaded world. Make sure the name is valid.");
 
 
         cfg.addDefault("crafting.message.noPermission","&7You do not have enought permissions to craft &b%item%&7.");

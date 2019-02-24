@@ -2,6 +2,7 @@ package io.github.azorimor.azospawner;
 
 import io.github.azorimor.azospawner.commands.GivePickaxeCommand;
 import io.github.azorimor.azospawner.commands.GiveSpawnerCommand;
+import io.github.azorimor.azospawner.commands.KillMobsCommand;
 import io.github.azorimor.azospawner.commands.PluginHelpCommand;
 import io.github.azorimor.azospawner.files.PluginFile;
 import io.github.azorimor.azospawner.listeners.*;
@@ -21,6 +22,8 @@ public class AzoSpawner extends JavaPlugin {
     private UpdateChecker updateChecker;
 
     private SpawnerPickaxeRecipe recipe;
+
+    private boolean spawnerEnabled;
 
     @Override
     public void onEnable() {
@@ -65,6 +68,10 @@ public class AzoSpawner extends JavaPlugin {
         PluginHelpCommand pluginHelpCommand = new PluginHelpCommand(messageHandler,this);
         getCommand("azospawnerhelp").setExecutor(pluginHelpCommand);
         getCommand("azospawnerhelp").setTabCompleter(pluginHelpCommand);
+
+        KillMobsCommand killMobsCommand = new KillMobsCommand(this);
+        getCommand("killmobs").setExecutor(killMobsCommand);
+        getCommand("killmobs").setTabCompleter(killMobsCommand);
     }
 
     private void registerRecipes(){
@@ -103,5 +110,14 @@ public class AzoSpawner extends JavaPlugin {
 
     public UpdateChecker getUpdateChecker() {
         return updateChecker;
+    }
+
+
+    public boolean isSpawnerEnabled() {
+        return spawnerEnabled;
+    }
+
+    public void setSpawnerEnabled(boolean spawnerEnabled) {
+        this.spawnerEnabled = spawnerEnabled;
     }
 }

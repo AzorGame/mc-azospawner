@@ -16,3 +16,6 @@ commands:
     description: Shows you some plugin information.
     usage: azospawnerhelp
     aliases: azohelp
+  killmobs:
+    description: Kills Mobs on the server.
+    usage: killmobs [worldName] [entityTyp]
