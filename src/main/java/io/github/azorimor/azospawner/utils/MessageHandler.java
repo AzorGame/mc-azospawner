@@ -3,6 +3,7 @@ package io.github.azorimor.azospawner.utils;
 import io.github.azorimor.azospawner.files.PluginFile;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
@@ -30,6 +31,10 @@ public class MessageHandler {
     private String commandGivePickaxe;
     private String commandGivePickaxeOther;
     private String recipeNoPermission;
+    private String commandKillMobsSuccess;
+    private String noWorld;
+
+    private String spawnerChange;
 
     public MessageHandler(PluginFile pluginFile) {
         this.pluginFile = pluginFile;
@@ -51,6 +56,9 @@ public class MessageHandler {
         this.commandGivePickaxe = pluginFile.getTranslatedString("command.message.givePickaxe");
         this.commandGivePickaxeOther = pluginFile.getTranslatedString("command.message.givePickaxeOther");
         this.recipeNoPermission = pluginFile.getTranslatedString("crafting.message.noPermission");
+        this.spawnerChange = pluginFile.getTranslatedString("spawner.message.changeSpawner");
+        this.commandKillMobsSuccess = pluginFile.getTranslatedString("command.message.killMobs");
+        this.noWorld = pluginFile.getTranslatedString("command.message.noWorld");
     }
 
     /**
@@ -130,12 +138,25 @@ public class MessageHandler {
         sender.sendMessage(prefix + noNumber.replace("%wrongArgument%", wrongArgument));
     }
 
-    //TODO comment
+    /**
+     * Sends the {@link Player} the message, that he successfully recived a spawner.
+     * @param player {@link Player} who recived the spawner.
+     * @param entityType {@link EntityType} which is spawned by the spawner.
+     * @param amount The amount of given spawners.
+     */
     public void sendCommandGiveSpawnerSuccess(Player player, EntityType entityType, int amount) {
         player.sendMessage(prefix + commandGiveSpawner.replace("%type%", entityType.toString()).replace("%amount%", String.valueOf(amount)));
     }
 
 
+
+    /**
+     * Sends a {@link CommandSender} the message, that another {@link Player} recived spawners.
+     * @param sender {@link CommandSender} who gave the spawner to the other {@link Player}.
+     * @param type {@link EntityType} which is spawned by the spawner.
+     * @param amount The amount of given spawners.
+     * @param target The {@link Player} who recived the spawerns.
+     */
     public void sendCommandGiveSpawnerOtherSuccess(CommandSender sender, EntityType type, int amount, Player target) {
         sender.sendMessage(prefix + commandGiveSpawnerOther
                 .replace("%target%", target.getDisplayName())
@@ -163,6 +184,17 @@ public class MessageHandler {
     public void sendRecipeNoPermission(Player player, Recipe recipe) {
         player.sendMessage(prefix + recipeNoPermission.replace("%item%", recipe.getResult().getItemMeta().getDisplayName()));
     }
+
+    public void sendSpawnerTypeChanged(Player player, EntityType oldType, EntityType newType){
+        player.sendMessage(prefix+spawnerChange.replace("%oldType%",oldType.toString()).replace("%newType%",newType.toString()));
+    }
+
+    public void sendCommandKillMobsSuccess(CommandSender sender, int killedAmount, String world){
+        sender.sendMessage(prefix+commandKillMobsSuccess.replace("%amount%",String.valueOf(killedAmount)).replace("%world%",world));
+    }
+
+    public void sendNoWorld(CommandSender sender, String wrongWorldName){
+        sender.sendMessage(prefix+noWorld.replace("%world%",wrongWorldName));
 
     public void reloadValues(){
         //TODO add more functionallity.

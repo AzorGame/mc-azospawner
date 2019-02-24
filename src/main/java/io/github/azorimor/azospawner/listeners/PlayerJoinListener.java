@@ -25,7 +25,6 @@ public class PlayerJoinListener implements Listener {
         Player player = event.getPlayer();
 
         if(player.hasPermission("azospawner.team.admin")){
-            messageHandler.sendPluginMessage(player,"&7");
             try {
                 if(instance.getUpdateChecker().checkForUpdate()){
                     messageHandler.sendPluginMessage(player,"&7Updates found. Please visit the website to download it.");

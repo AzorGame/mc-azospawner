@@ -12,6 +12,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,6 +38,10 @@ public class PluginFile {
 
         cfg.addDefault("prefix","&7[&cAzo&bSpawner&7] &r");
         cfg.addDefault("spawner.color","&3");
+        cfg.addDefault("spawner.gui.name","&eSpawner&cGUI");
+        cfg.addDefault("spawner.gui.item.egg.name","&e%type%");
+        cfg.addDefault("spawner.gui.item.egg.meta", Arrays.asList(new String[]{"&3Change the spawning mob","&3of this spawner."}));
+        cfg.addDefault("spawner.message.changeSpawner","&7You successfully changed the spawnertype from &b%oldType% &7to &b%newType%&7.");
 
         cfg.addDefault("command.message.noPlayer","Only players can perform this command.");
         cfg.addDefault("command.message.noPermission","&7You don't have enought permissions for the command &b/%command%&7.");
@@ -48,6 +53,8 @@ public class PluginFile {
         cfg.addDefault("command.message.playerOffline","&7The player &b%player% &7is offline.");
         cfg.addDefault("command.message.givePickaxe","&7You recived the &bSpawner Pickaxe&7.");
         cfg.addDefault("command.message.givePickaxeOther","&7The player &b%target%&7 recived the &bSpawner Pickaxe&7.");
+        cfg.addDefault("command.message.killMobs","&b%amount%&7 Mobs have been killed in the world &b%world%&7.");
+        cfg.addDefault("command.message.noWorld","&7The world &b%world%&7 is no loaded world. Make sure the name is valid.");
 
 
         cfg.addDefault("crafting.message.noPermission","&7You do not have enought permissions to craft &b%item%&7.");

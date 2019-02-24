@@ -2,6 +2,7 @@ package io.github.azorimor.azospawner.commands;
 
 import io.github.azorimor.azospawner.AzoSpawner;
 import io.github.azorimor.azospawner.utils.MessageHandler;
+import io.github.azorimor.azospawner.utils.SpawnerDataUtils;
 import io.github.azorimor.azospawner.utils.SpawnerItemTagType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -25,6 +26,11 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
 
     private MessageHandler messageHandler;
     private AzoSpawner instance;
+    private SpawnerDataUtils spawnerDataUtils;
+
+    private List<String> availableTypesString;
+    private List<String> digits;
+    private String spawnerColor;
 
     private List<String> availableTypesString;
     private List<String> digits;
@@ -33,6 +39,8 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
     public GiveSpawnerCommand(MessageHandler messageHandler, AzoSpawner instance) {
         this.messageHandler = messageHandler;
         this.instance = instance;
+        this.spawnerDataUtils = new SpawnerDataUtils();
+
         List<EntityType> availableTypes = new ArrayList<EntityType>(Arrays.asList(EntityType.values()));
         availableTypesString = new ArrayList<String>(availableTypes.size());
         for (EntityType type :
@@ -109,6 +117,13 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
         return true;
     }
 
+    /**
+     * Gives the {@link Player} the requested spawner and sends him a message, which contains, that he
+     * recived the spawner.
+     * @param target The {@link Player} who should recive the spawner and the message.
+     * @param entityType The {@link EntityType} which the spawner should spawn.
+     * @param amount The amount of the spawner given to the player.
+     */
     private void giveSpawnerToPlayer(Player target, EntityType entityType, int amount) {
         ItemStack spawner = new ItemStack(Material.SPAWNER, amount);
 
@@ -131,7 +146,7 @@ public class GiveSpawnerCommand implements CommandExecutor, TabCompleter {
 
         switch (args.length){
             case 1:
-                StringUtil.copyPartialMatches(args[0], availableTypesString,completions);
+                StringUtil.copyPartialMatches(args[0], spawnerDataUtils.getAvailableMobsString(),completions);
                 break;
             case 2:
                 StringUtil.copyPartialMatches(args[1],digits,completions);

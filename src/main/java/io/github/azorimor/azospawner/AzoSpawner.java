@@ -2,12 +2,11 @@ package io.github.azorimor.azospawner;
 
 import io.github.azorimor.azospawner.commands.GivePickaxeCommand;
 import io.github.azorimor.azospawner.commands.GiveSpawnerCommand;
+import io.github.azorimor.azospawner.commands.KillMobsCommand;
 import io.github.azorimor.azospawner.commands.PluginHelpCommand;
 import io.github.azorimor.azospawner.files.PluginFile;
-import io.github.azorimor.azospawner.listeners.BreakSpawnerListener;
-
+import io.github.azorimor.azospawner.listeners.*;
 import io.github.azorimor.azospawner.listeners.CraftPickaxeListener;
-
 import io.github.azorimor.azospawner.listeners.PlaceSpawnerListener;
 import io.github.azorimor.azospawner.listeners.PlayerJoinListener;
 import io.github.azorimor.azospawner.recipe.SpawnerPickaxeRecipe;
@@ -25,6 +24,8 @@ public class AzoSpawner extends JavaPlugin {
     private UpdateChecker updateChecker;
 
     private SpawnerPickaxeRecipe recipe;
+
+    private boolean spawnerEnabled;
 
     @Override
     public void onEnable() {
@@ -53,6 +54,7 @@ public class AzoSpawner extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new CraftPickaxeListener(messageHandler,this),this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(messageHandler,this),this);
+        getServer().getPluginManager().registerEvents(new PlayerInteractsSpawnerListener(this),this);
 
     }
 
@@ -68,6 +70,10 @@ public class AzoSpawner extends JavaPlugin {
         PluginHelpCommand pluginHelpCommand = new PluginHelpCommand(messageHandler,this);
         getCommand("azospawnerhelp").setExecutor(pluginHelpCommand);
         getCommand("azospawnerhelp").setTabCompleter(pluginHelpCommand);
+
+        KillMobsCommand killMobsCommand = new KillMobsCommand(this);
+        getCommand("killmobs").setExecutor(killMobsCommand);
+        getCommand("killmobs").setTabCompleter(killMobsCommand);
     }
 
     private void registerRecipes(){
@@ -90,19 +96,10 @@ public class AzoSpawner extends JavaPlugin {
         }
     }
 
-
     public PluginFile getPluginFile() {
         return pluginFile;
     }
 
-    public MessageHandler getMessageHandler() {
-        return messageHandler;
-    }
-
-
-    public PluginFile getPluginFile() {
-        return pluginFile;
-    }
 
     public MessageHandler getMessageHandler() {
         return messageHandler;
@@ -114,5 +111,13 @@ public class AzoSpawner extends JavaPlugin {
 
     public UpdateChecker getUpdateChecker() {
         return updateChecker;
+    }
+
+    public boolean isSpawnerEnabled() {
+        return spawnerEnabled;
+    }
+
+    public void setSpawnerEnabled(boolean spawnerEnabled) {
+        this.spawnerEnabled = spawnerEnabled;
     }
 }

@@ -25,7 +25,6 @@ public class BreakSpawnerListener implements Listener {
         this.instance = instance;
 
         this.spawnerColor = instance.getPluginFile().getTranslatedString("spawner.color");
-        System.out.println(spawnerColor);
     }
 
 
