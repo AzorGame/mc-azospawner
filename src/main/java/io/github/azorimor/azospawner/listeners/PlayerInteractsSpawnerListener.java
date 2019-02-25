@@ -64,7 +64,7 @@ public class PlayerInteractsSpawnerListener implements Listener {
             Block clickedBlock = event.getClickedBlock();
             if (clickedBlock.getType() == Material.SPAWNER) {
                 Player player = event.getPlayer();
-                if (player.hasPermission("azospawner.interact.spawner")) {
+                if (player.hasPermission("azospawner.interact.spawner") && !player.isSneaking()) {
                     event.setCancelled(true);
                     openSpawnerGUI(player);
                     player.setMetadata("spawnerChangeLocation", new FixedMetadataValue(instance, clickedBlock));

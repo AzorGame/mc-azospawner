@@ -2,7 +2,7 @@ name: AzoSpawner
 author: Azorimor
 website: www.github.com/azorimor/mc-azospawner
 main: io.github.azorimor.azospawner.AzoSpawner
-version: 1.0.3
+version: 1.0.4
 description: Controlling Spawners
 api-version: 1.13
 commands:
@@ -19,3 +19,6 @@ commands:
   killmobs:
     description: Kills Mobs on the server.
     usage: killmobs [worldName] [entityTyp]
+  mobspawning:
+    description: Allow or disallow mobs spawned by spawners.
+    usage: mobspawning <allow | disallow | info> [entityType]

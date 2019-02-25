@@ -193,8 +193,9 @@ public class MessageHandler {
         sender.sendMessage(prefix+commandKillMobsSuccess.replace("%amount%",String.valueOf(killedAmount)).replace("%world%",world));
     }
 
-    public void sendNoWorld(CommandSender sender, String wrongWorldName){
-        sender.sendMessage(prefix+noWorld.replace("%world%",wrongWorldName));
+    public void sendNoWorld(CommandSender sender, String wrongWorldName) {
+        sender.sendMessage(prefix + noWorld.replace("%world%", wrongWorldName));
+    }
 
     public void reloadValues(){
         //TODO add more functionallity.

@@ -11,6 +11,7 @@ import io.github.azorimor.azospawner.listeners.PlaceSpawnerListener;
 import io.github.azorimor.azospawner.listeners.PlayerJoinListener;
 import io.github.azorimor.azospawner.recipe.SpawnerPickaxeRecipe;
 import io.github.azorimor.azospawner.utils.MessageHandler;
+import io.github.azorimor.azospawner.utils.SpawnerManager;
 import io.github.azorimor.azospawner.utils.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,7 +26,7 @@ public class AzoSpawner extends JavaPlugin {
 
     private SpawnerPickaxeRecipe recipe;
 
-    private boolean spawnerEnabled;
+    private SpawnerManager spawnerManager;
 
     @Override
     public void onEnable() {
@@ -33,6 +34,7 @@ public class AzoSpawner extends JavaPlugin {
 
         this.pluginFile = new PluginFile(this);
         this.messageHandler = new MessageHandler(pluginFile);
+        this.spawnerManager = new SpawnerManager();
 
         checkUpdates();
 
@@ -113,11 +115,8 @@ public class AzoSpawner extends JavaPlugin {
         return updateChecker;
     }
 
-    public boolean isSpawnerEnabled() {
-        return spawnerEnabled;
-    }
 
-    public void setSpawnerEnabled(boolean spawnerEnabled) {
-        this.spawnerEnabled = spawnerEnabled;
+    public SpawnerManager getSpawnerManager() {
+        return spawnerManager;
     }
 }
